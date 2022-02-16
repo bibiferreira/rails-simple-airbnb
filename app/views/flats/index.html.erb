@@ -1,3 +1,33 @@
 
 
 <h1>All our Flats (<%= @flats.count %>)</h1>
+
+<div class="container">
+  <div class="row row-cols-auto">
+  <% @flats.each do |flat| %>
+    <div class="col-md-4">
+      <div class="flat-card">
+        <div class="flat-card-content">
+          <div class="flat-card-title">
+            <h4><%= flat.name %></h4>
+          </div>
+          <p><%= flat.description %></p>
+          <div class="flex">
+            <div class="flex">
+              <i class="material-icons me-2">people</i><span><%= flat.number_of_guests %></span>
+            </div>
+            <div class="flex ms-3">
+              <i class="material-icons me-2">$</i> <%= flat.price_per_night %>
+            </div>
+          </div>
+        </div>
+        <div class="flat-card-actions">
+          <a href="/flats/5828">More info</a>
+          <a class="ms-3 text-warning" href="/flats/5828/edit">Edit</a>
+          <a data-confirm="Are you sure?" class="ms-3 text-danger" rel="nofollow" data-method="delete" href="/flats/5828">Remove</a>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  </div>
+</div>
